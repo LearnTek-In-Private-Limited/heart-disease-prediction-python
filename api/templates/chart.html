@@ -5,31 +5,31 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Heart Disease</title>
+  <title>Heart</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-   <link href="../static/img/favicon.png" rel="icon">
+  <link href="../static/img/favicon.png" rel="icon">
   <link href="../static/img/apple-touch-icon.png" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
   <!-- Vendor CSS Files -->
-  <link href="../static/vendor/animate.css/animate.min.css" rel="stylesheet">
-  <link href="../static/vendor/aos/aos.css" rel="stylesheet">
   <link href="../static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="../static/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
   <link href="../static/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
   <link href="../static/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="../static/vendor/remixicon/remixicon.css" rel="stylesheet">
   <link href="../static/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
   <!-- Template Main CSS File -->
-  <link href="../static/style.css" rel="stylesheet">
+  <link href="../static/css/style.css" rel="stylesheet">
+
   <!-- =======================================================
-  * Template Name: Restaurantly - v3.0.1
-  * Template URL: https://bootstrapmade.com/restaurantly-restaurant-template/
+  * Template Name: Tempo - v4.6.0
+  * Template URL: https://bootstrapmade.com/tempo-free-onepage-bootstrap-theme/
   * Author: BootstrapMade.com
   * License: https://bootstrapmade.com/license/
   ======================================================== -->
@@ -55,16 +55,17 @@
           <li><a class="nav-link scrollto" href="{{ url_for('login')}}">Login</a></li>
 		    <li><a class="nav-link scrollto" href="{{ url_for('upload')}}">upload</a></li>
            
-		  <li class="dropdown"><a href="#"><span>prediction</span> <i class="bi bi-chevron-right"></i></a>
+		  <li class="dropdown"><a href="#"><span>Test prediction</span> <i class="bi bi-chevron-right"></i></a>
                 <ul>
-                                     
+                   
+                  <li><a href="{{ url_for('index')}}">Test</a></li>
+                  
                 </ul>
               </li>
 			    <li class="dropdown"><a href="#"><span>Analysis</span> <i class="bi bi-chevron-right"></i></a>
                 <ul>
-                  <li><a href="{{ url_for('theft')}}">Theft_crime</a></li>
-				  <li><a href="{{ url_for('chart')}}">Total_crime</a></li>
-                   
+                  <li><a href="{{ url_for('chart')}}">Graph</a></li>
+				                     
                 </ul>
               </li>
 		 
@@ -82,7 +83,7 @@
     <div class="container position-relative text-center text-lg-start" data-aos="zoom-in" data-aos-delay="100">
       <div class="row">
         <div class="col-lg-8">
-       <h1><span>Heart Disease Prediction Using RNN Classification</span></h1>
+       <h1><span>Heart Disease Prediction Using YoloV5 Classification</span></h1>
 
           
         </div>
@@ -109,7 +110,7 @@
         </div>
 		  
 		   
- <center><h1>Total_News Categories</h1></center> 
+ <center><h1>Major Contribution for Heart Disease</h1></center> 
  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
   <script type="text/javascript">
     google.charts.load("current", {packages:['corechart']});
@@ -117,10 +118,10 @@
     function drawChart() {
       var data = google.visualization.arrayToDataTable([
         ["states", "percentage", { role: "style" } ],
-        ["Trump", 102, "#00FFFF"],
-        ["Narendira Modi", 172, "#DF01A5"],
-        ["New York", 60, "#FF0000"],
-        ["Amazon", 54, "color: #FFBF00"]
+        ["Age", 102, "#00FFFF"],
+        ["Resting Blood Pressure", 172, "#DF01A5"],
+        ["Cholestoral", 60, "#FF0000"],
+        ["Exercise Angina", 54, "color: #FFBF00"]
       ]);
 
       var view = new google.visualization.DataView(data);
@@ -160,8 +161,8 @@
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
           ['Type', 'percentage'],
-          ['Fake', 41],
-          ['Original',    69]
+          ['Heart Disease', 41],
+          ['Normal',    69]
         ]);
 
         var options = {
@@ -176,7 +177,7 @@
   </head>
   <body>
   </br>
-   <center><h1>FAKE NEWS VS ORIGINAL NEWS</h1></center> 
+   <center><h1>Heart Disease VS Normal </h1></center> 
    <center> <div id="piechart_3d" style="width: 900px; height: 500px;"></div></center>
   </body>
 </html>
