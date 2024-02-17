@@ -2,6 +2,7 @@ import re
 from turtle import setx
 from flask import Flask, flash, redirect, render_template, request, session 
 from flask_session import Session
+from flask_session import Session
 from tempfile import mkdtemp
 import pandas as pd
 from sklearn.model_selection import train_test_split
@@ -30,36 +31,9 @@ app.config["SESSION_PERMANENT"] = False
 app.config["SESSION_TYPE"] = "filesystem"
 Session(app)
 
-
-@app.route('/', methods=["GET", "POST"])
-@app.route('/first')
-def first():
-    return render_template('first.html')
-@app.route('/login')
-def login():
-    return render_template('login.html')
-def home():
-	return render_template('home.html')
-@app.route('/upload')
-def upload():
-    return render_template('upload.html')  
-@app.route('/preview',methods=["POST"])
-def preview():
-    if request.method == 'POST':
-        dataset = request.files['datasetfile']
-        df = pd.read_csv(dataset,encoding = 'unicode_escape')
-        df.set_index('Id', inplace=True)
-        return render_template("preview.html",df_view = df) 
-
-
-
-@app.route('/prediction1', methods=["GET", "POST"])
-def prediction1():
-    return render_template('index.html')  
-
-#@app.route("/redirecting", methods=["GET", "POST"])
-#def redirecting():
-  #  return redirect("/index")
+@app.route("/", methods=["GET", "POST"])
+def redirecting():
+    return redirect("/index")
 
 global age
 global sex
@@ -158,16 +132,16 @@ def index():
 def result():
     global submitted
     if not submitted:
-        return redirect("/prediction1")
+        return redirect("/")
     submitted = False
     stats = output()
     spec = stats[0] * 100
     sens = stats[1] * 100
     total = stats[2] * 50
     if (stats[3] == 1):
-        result = "Yes"
+        result = "Yes. You are Having Heart Disease"
     else:
-        result = "No"
+        result = "No.You are not Having Heart Disease"
 
     return render_template("result.html",result=result,spec=spec,sens=sens,total=total)
 
@@ -237,5 +211,28 @@ def chart():
     return render_template('chart.html')
 
 
-if __name__ == "__main__":
-    app.run(host='0.0.0.0', port=5000)
+@app.route('/', methods=["GET", "POST"])
+@app.route('/first')
+def first():
+    return render_template('first.html')
+@app.route('/login')
+def login():
+    return render_template('login.html')
+def home():
+	return render_template('home.html')
+@app.route('/upload')
+def upload():
+    return render_template('upload.html')  
+@app.route('/preview',methods=["POST"])
+def preview():
+    if request.method == 'POST':
+        dataset = request.files['datasetfile']
+        df = pd.read_csv(dataset,encoding = 'unicode_escape')
+        df.set_index('Id', inplace=True)
+        return render_template("preview.html",df_view = df) 
+
+if __name__ == '__main__':
+         app.run(debug=True)
+
+
+
