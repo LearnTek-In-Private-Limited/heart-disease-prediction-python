@@ -1,6 +1,1 @@
-Flask
-Flask-Session
-requests
-sklearn
-werkzeug
-pandas
+Flask==3.0.0
